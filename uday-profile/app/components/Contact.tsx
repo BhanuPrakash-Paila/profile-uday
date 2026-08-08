@@ -2,23 +2,23 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="mt-20 rounded-[2rem] border border-slate-800/80 bg-slate-950/95 p-8 shadow-[0_40px_80px_-40px_rgba(15,23,42,0.95)] sm:p-10"
+      className="mt-20 rounded-[2rem] border border-slate-200/80 bg-white/80 p-8 shadow-[0_20px_60px_-30px_rgba(17,24,39,0.2)] backdrop-blur-xl sm:p-10"
     >
       <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="space-y-6">
-          <p className="text-sm uppercase tracking-[0.3em] text-sky-300">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-indigo-600">
             Contact
           </p>
-          <h2 className="text-3xl font-semibold text-white sm:text-4xl">
+          <h2 className="text-3xl font-semibold text-slate-950 sm:text-4xl">
             Let&apos;s create something unforgettable.
           </h2>
-          <p className="max-w-xl text-sm leading-7 text-slate-400 sm:text-base">
+          <p className="max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
             Reach out with a few details about your project and I&apos;ll
             respond with a tailored plan for photography, video editing, or
             frontend development.
           </p>
 
-          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 text-sm text-slate-300">
+          <div className="grid gap-4 grid-cols-1 text-sm text-slate-700 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 label: "Instagram",
@@ -96,9 +96,9 @@ export default function Contact() {
                 href={url}
                 target={label === "Call" ? "_self" : "_blank"}
                 rel={label === "Call" ? undefined : "noreferrer"}
-                className="inline-flex items-center justify-center gap-3 rounded-3xl border border-slate-800/80 bg-slate-900/75 px-5 py-4 text-slate-300 transition hover:border-sky-500/40 hover:text-white"
+                className="inline-flex items-center justify-center gap-3 rounded-3xl border border-slate-200 bg-slate-50 px-5 py-4 text-slate-700 transition hover:border-indigo-300 hover:bg-white hover:text-slate-900"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-800 text-sky-300">
+                <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600">
                   {icon}
                 </span>
                 <span>{label}</span>
@@ -107,10 +107,10 @@ export default function Contact() {
           </div>
         </div>
 
-        <form className="space-y-5 rounded-[2rem] border border-slate-800/90 bg-slate-900/90 p-6 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.8)]">
+        <form className="space-y-5 rounded-[2rem] border border-slate-200 bg-slate-50 p-6 shadow-[0_20px_60px_-30px_rgba(17,24,39,0.2)]">
           <div>
             <label
-              className="mb-2 block text-sm font-medium text-slate-300"
+              className="mb-2 block text-sm font-medium text-slate-700"
               htmlFor="name"
             >
               Name
@@ -120,12 +120,12 @@ export default function Contact() {
               name="name"
               type="text"
               placeholder="Your name"
-              className="w-full rounded-3xl border border-slate-800 bg-slate-950/90 px-4 py-3 text-slate-100 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
+              className="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
             />
           </div>
           <div>
             <label
-              className="mb-2 block text-sm font-medium text-slate-300"
+              className="mb-2 block text-sm font-medium text-slate-700"
               htmlFor="email"
             >
               Email
@@ -135,12 +135,12 @@ export default function Contact() {
               name="email"
               type="email"
               placeholder="you@example.com"
-              className="w-full rounded-3xl border border-slate-800 bg-slate-950/90 px-4 py-3 text-slate-100 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
+              className="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
             />
           </div>
           <div>
             <label
-              className="mb-2 block text-sm font-medium text-slate-300"
+              className="mb-2 block text-sm font-medium text-slate-700"
               htmlFor="message"
             >
               Message
@@ -150,12 +150,12 @@ export default function Contact() {
               name="message"
               rows={5}
               placeholder="Tell me about your project"
-              className="w-full rounded-3xl border border-slate-800 bg-slate-950/90 px-4 py-3 text-slate-100 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
+              className="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
             />
           </div>
           <button
             type="submit"
-            className="inline-flex w-full items-center justify-center rounded-full bg-sky-500 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-sky-400"
+            className="inline-flex w-full items-center justify-center rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-indigo-500"
           >
             Send Message
           </button>

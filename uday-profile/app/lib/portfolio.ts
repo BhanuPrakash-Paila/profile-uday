@@ -1,5 +1,6 @@
 export type ProjectCategory =
   | "wedding"
+  | "event"
   | "baby"
   | "personal"
   | "couple"
@@ -126,6 +127,28 @@ export const defaultProjects: Project[] = [
     ],
   },
   {
+    id: "event-coverage-showcase",
+    slug: "event-coverage-showcase",
+    title: "Event Coverage Showcase",
+    description:
+      "High-energy event coverage with polished storytelling for launches, parties, and celebrations.",
+    image:
+      "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1000&q=80",
+    link: "#contact",
+    category: "event",
+    gallery: [
+      "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1000&q=80",
+    ],
+    videoClips: [
+      {
+        title: "Launch Day Recap",
+        url: "https://www.youtube.com/watch?v=V8ArfVmv1KQ",
+      },
+    ],
+  },
+  {
     id: "baby-portrait-session",
     slug: "baby-portrait-session",
     title: "Baby Portrait Session",
@@ -241,6 +264,52 @@ export function getProjectBySlug(slug: string): Project | null {
   return defaultProjects.find((project) => project.slug === slug) ?? null;
 }
 
+export function getProjectCategoryLabel(category: ProjectCategory): string {
+  switch (category) {
+    case "wedding":
+      return "Wedding";
+    case "event":
+      return "Event";
+    case "baby":
+      return "Baby";
+    case "personal":
+      return "Personal";
+    case "couple":
+      return "Couple";
+    case "promo":
+      return "Promotional";
+    case "insta":
+      return "Insta Clips";
+    case "video":
+      return "Video";
+    default:
+      return "Project";
+  }
+}
+
+export function getProjectGalleryTitle(category: ProjectCategory): string {
+  switch (category) {
+    case "wedding":
+      return "Recent Wedding Gallery";
+    case "event":
+      return "Recent Event Gallery";
+    case "baby":
+      return "Recent Baby Gallery";
+    case "personal":
+      return "Recent Personal Gallery";
+    case "couple":
+      return "Recent Couple Gallery";
+    case "promo":
+      return "Recent Promotional Gallery";
+    case "insta":
+      return "Recent Insta Clips";
+    case "video":
+      return "Recent Video Clips";
+    default:
+      return "Recent Gallery";
+  }
+}
+
 export function createProjectSlug(title: string): string {
   return title
     .toLowerCase()
@@ -256,6 +325,12 @@ export function getGalleryForCategory(category: ProjectCategory): string[] {
         "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1000&q=80",
         "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80",
         "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1000&q=80",
+      ];
+    case "event":
+      return [
+        "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=1000&q=80",
       ];
     case "baby":
       return [
@@ -300,6 +375,13 @@ export function getVideoClipsForCategory(
       return [
         {
           title: "Golden Hour Wedding Reel",
+          url: "https://www.youtube.com/watch?v=V8ArfVmv1KQ",
+        },
+      ];
+    case "event":
+      return [
+        {
+          title: "Event Highlights Reel",
           url: "https://www.youtube.com/watch?v=V8ArfVmv1KQ",
         },
       ];

@@ -1,8 +1,22 @@
 @import "tailwindcss";
 
 :root {
+  --background: #f9fafb;
+  --foreground: #111827;
+  --accent-indigo: #4f46e5;
+  --accent-teal: #06b6d4;
+  --surface: #ffffff;
+  --muted: #6b7280;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
   --background: #020617;
-  --foreground: #edf2f7;
+  --foreground: #f8fafc;
+  --accent-indigo: #818cf8;
+  --accent-teal: #2dd4bf;
+  --surface: #0f172a;
+  --muted: #94a3b8;
   color-scheme: dark;
 }
 
@@ -25,8 +39,21 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 28%),
-    linear-gradient(180deg, #020617 0%, #020617 100%);
+    radial-gradient(
+      circle at top left,
+      rgba(6, 182, 212, 0.16),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(79, 70, 229, 0.12),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      var(--background) 0%,
+      color-mix(in srgb, var(--background) 85%, #111827) 100%
+    );
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
 }
@@ -37,9 +64,13 @@ textarea {
   font: inherit;
 }
 
+a {
+  color: inherit;
+}
+
 ::selection {
-  background: rgba(56, 189, 248, 0.24);
-  color: #ffffff;
+  background: rgba(79, 70, 229, 0.2);
+  color: #111827;
 }
 
 .fade-in {

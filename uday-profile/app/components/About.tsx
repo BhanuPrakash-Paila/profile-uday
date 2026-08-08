@@ -11,17 +11,17 @@ export default function About() {
   return (
     <section
       id="about"
-      className="mt-20 rounded-[2rem] border border-slate-800/80 bg-slate-900/80 p-8 shadow-[0_40px_80px_-40px_rgba(15,23,42,0.9)] sm:p-10"
+      className="mt-20 rounded-[2rem] border border-slate-200/80 bg-white/80 p-8 shadow-[0_20px_60px_-30px_rgba(17,24,39,0.2)] backdrop-blur-xl sm:p-10"
     >
       <div className="space-y-8">
         <div className="space-y-3">
-          <p className="text-sm uppercase tracking-[0.3em] text-sky-300">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-indigo-600">
             About Me
           </p>
-          <h2 className="text-3xl font-semibold text-white sm:text-4xl">
+          <h2 className="text-3xl font-semibold text-slate-950 sm:text-4xl">
             Professional Visual & Frontend Expertise
           </h2>
-          <p className="max-w-3xl text-sm leading-7 text-slate-400 sm:text-base">
+          <p className="max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
             I blend polished photography and cinematic video editing with modern
             frontend development using React and Next.js. My work is built
             around emotion, clarity, and memorable storytelling for weddings,
@@ -30,7 +30,7 @@ export default function About() {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
-          <div className="space-y-6 text-slate-300">
+          <div className="space-y-6 text-slate-700">
             <p className="text-base leading-8">
               I specialize in crafting marriage albums, event highlights, party
               shoots, and professional photoshoots that feel cinematic and full
@@ -48,7 +48,7 @@ export default function About() {
             {expertiseItems.map((item) => (
               <div
                 key={item}
-                className="rounded-3xl border border-slate-800/80 bg-slate-950/80 p-4 text-slate-100 shadow-sm shadow-slate-950/20"
+                className="rounded-3xl border border-slate-200 bg-slate-50 p-4 text-slate-900 shadow-sm"
               >
                 <p className="text-sm font-medium">{item}</p>
               </div>

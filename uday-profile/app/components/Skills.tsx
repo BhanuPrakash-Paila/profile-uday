@@ -33,8 +33,8 @@ const emptySkill: SkillForm = {
 function badgeStyles(category: "editing" | "coding") {
   return `rounded-full px-4 py-2 text-sm font-semibold transition ${
     category === "editing"
-      ? "border border-sky-500/30 bg-sky-500/10 text-sky-200 hover:border-sky-400/40 hover:bg-sky-500/15"
-      : "border border-emerald-500/30 bg-emerald-500/10 text-emerald-200 hover:border-emerald-400/40 hover:bg-emerald-500/15"
+      ? "border border-indigo-200 bg-indigo-50 text-indigo-700 hover:border-indigo-300 hover:bg-indigo-100"
+      : "border border-teal-200 bg-teal-50 text-teal-700 hover:border-teal-300 hover:bg-teal-100"
   }`;
 }
 
@@ -114,54 +114,54 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="mt-20 rounded-[2rem] border border-slate-800/80 bg-slate-900/80 p-8 shadow-[0_40px_80px_-40px_rgba(15,23,42,0.9)] sm:p-10"
+      className="mt-20 rounded-[2rem] border border-slate-200/80 bg-white/80 p-8 shadow-[0_20px_60px_-30px_rgba(17,24,39,0.2)] backdrop-blur-xl sm:p-10"
     >
       <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.3em] text-sky-300">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-teal-600">
             Skills
           </p>
-          <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-semibold text-slate-950 sm:text-4xl">
             Manage Skill Badges
           </h2>
         </div>
         <button
           type="button"
           onClick={openAddModal}
-          className="inline-flex items-center justify-center rounded-full bg-sky-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-sky-400"
+          className="inline-flex items-center justify-center rounded-full bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-teal-500"
         >
           Add Skill
         </button>
       </div>
 
-      <p className="max-w-xl text-sm leading-7 text-slate-400 sm:text-base">
+      <p className="max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
         Add new skills, choose categories, and remove or update the badges that
         show on your portfolio.
       </p>
 
       <div className="mt-8 grid gap-6 md:grid-cols-2">
-        <div className="space-y-4 rounded-[2rem] border border-slate-800/90 bg-slate-950/80 p-6">
+        <div className="space-y-4 rounded-[2rem] border border-slate-200 bg-slate-50 p-6">
           <div className="flex items-center justify-between gap-4">
             <div>
-              <p className="text-sm uppercase tracking-[0.28em] text-slate-400">
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-500">
                 Editing Tools
               </p>
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-slate-600">
                 Blue badges for creative suites.
               </p>
             </div>
-            <span className="rounded-full bg-sky-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-sky-200">
+            <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-indigo-700">
               {editingSkills.length}
             </span>
           </div>
           <div className="space-y-3">
             {editingSkills.length === 0 ? (
-              <p className="text-sm text-slate-500">No editing skills yet.</p>
+              <p className="text-sm text-slate-600">No editing skills yet.</p>
             ) : (
               editingSkills.map((skill) => (
                 <div
                   key={skill.id}
-                  className="flex flex-col gap-3 rounded-3xl border border-slate-800/70 bg-slate-900/90 p-4 transition hover:border-sky-500/30"
+                  className="flex flex-col gap-3 rounded-3xl border border-slate-200 bg-white p-4 transition hover:border-indigo-200"
                 >
                   <div className="flex flex-wrap items-center gap-3">
                     <span className={badgeStyles(skill.category)}>
@@ -171,14 +171,14 @@ export default function Skills() {
                       <button
                         type="button"
                         onClick={() => openEditModal(skill)}
-                        className="rounded-full border border-slate-700 bg-slate-950/90 px-3 py-2 text-xs font-semibold text-slate-100 transition hover:bg-slate-800"
+                        className="rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-700 transition hover:bg-white"
                       >
                         Edit
                       </button>
                       <button
                         type="button"
                         onClick={() => handleDelete(skill.id)}
-                        className="rounded-full border border-rose-500/30 bg-rose-500/10 px-3 py-2 text-xs font-semibold text-rose-200 transition hover:bg-rose-500/20"
+                        className="rounded-full border border-rose-200 bg-rose-50 px-3 py-2 text-xs font-semibold text-rose-700 transition hover:bg-rose-100"
                       >
                         Delete
                       </button>
@@ -190,28 +190,28 @@ export default function Skills() {
           </div>
         </div>
 
-        <div className="space-y-4 rounded-[2rem] border border-slate-800/90 bg-slate-950/80 p-6">
+        <div className="space-y-4 rounded-[2rem] border border-slate-200 bg-slate-50 p-6">
           <div className="flex items-center justify-between gap-4">
             <div>
-              <p className="text-sm uppercase tracking-[0.28em] text-slate-400">
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-500">
                 Coding Tools
               </p>
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-slate-600">
                 Green badges for frontend skills.
               </p>
             </div>
-            <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-emerald-200">
+            <span className="rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-teal-700">
               {codingSkills.length}
             </span>
           </div>
           <div className="space-y-3">
             {codingSkills.length === 0 ? (
-              <p className="text-sm text-slate-500">No coding skills yet.</p>
+              <p className="text-sm text-slate-600">No coding skills yet.</p>
             ) : (
               codingSkills.map((skill) => (
                 <div
                   key={skill.id}
-                  className="flex flex-col gap-3 rounded-3xl border border-slate-800/70 bg-slate-900/90 p-4 transition hover:border-emerald-500/30"
+                  className="flex flex-col gap-3 rounded-3xl border border-slate-200 bg-white p-4 transition hover:border-teal-200"
                 >
                   <div className="flex flex-wrap items-center gap-3">
                     <span className={badgeStyles(skill.category)}>
@@ -244,20 +244,20 @@ export default function Skills() {
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" />
-          <div className="relative w-full max-w-2xl overflow-hidden rounded-[2rem] border border-slate-800/90 bg-slate-950/95 p-6 shadow-2xl shadow-slate-950/40">
+          <div className="relative w-full max-w-2xl overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-200/70">
             <div className="mb-6 flex items-center justify-between gap-4">
               <div>
-                <p className="text-sm uppercase tracking-[0.3em] text-sky-300">
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-teal-600">
                   Skill Settings
                 </p>
-                <h3 className="mt-2 text-2xl font-semibold text-white">
+                <h3 className="mt-2 text-2xl font-semibold text-slate-950">
                   {editId ? "Edit Skill" : "Add Skill"}
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setIsModalOpen(false)}
-                className="rounded-full border border-slate-800 bg-slate-900 px-4 py-2 text-sm text-slate-200 transition hover:border-slate-700 hover:text-white"
+                className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-700 transition hover:border-teal-300 hover:bg-white"
               >
                 Close
               </button>
@@ -265,7 +265,7 @@ export default function Skills() {
             <div className="space-y-5">
               <div>
                 <label
-                  className="mb-2 block text-sm font-medium text-slate-300"
+                  className="mb-2 block text-sm font-medium text-slate-700"
                   htmlFor="skill-name"
                 >
                   Skill name
@@ -280,15 +280,15 @@ export default function Skills() {
                       name: event.target.value,
                     }))
                   }
-                  className="w-full rounded-3xl border border-slate-800 bg-slate-900/90 px-4 py-3 text-slate-100 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
+                  className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-teal-500 focus:ring-2 focus:ring-teal-200"
                 />
                 {errors.name && (
-                  <p className="mt-2 text-sm text-rose-400">{errors.name}</p>
+                  <p className="mt-2 text-sm text-rose-600">{errors.name}</p>
                 )}
               </div>
               <div>
                 <label
-                  className="mb-2 block text-sm font-medium text-slate-300"
+                  className="mb-2 block text-sm font-medium text-slate-700"
                   htmlFor="skill-category"
                 >
                   Category
@@ -302,7 +302,7 @@ export default function Skills() {
                       category: event.target.value as "editing" | "coding",
                     }))
                   }
-                  className="w-full rounded-3xl border border-slate-800 bg-slate-900/90 px-4 py-3 text-slate-100 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
+                  className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-teal-500 focus:ring-2 focus:ring-teal-200"
                 >
                   <option value="editing">Editing</option>
                   <option value="coding">Coding</option>
@@ -312,14 +312,14 @@ export default function Skills() {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="inline-flex items-center justify-center rounded-full border border-slate-800 bg-slate-900 px-5 py-3 text-sm text-slate-200 transition hover:border-slate-700 hover:text-white"
+                  className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-slate-50 px-5 py-3 text-sm text-slate-700 transition hover:border-teal-300 hover:bg-white"
                 >
                   Cancel
                 </button>
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="inline-flex items-center justify-center rounded-full bg-sky-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-sky-400"
+                  className="inline-flex items-center justify-center rounded-full bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-teal-500"
                 >
                   Save Skill
                 </button>
