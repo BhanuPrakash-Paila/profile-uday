@@ -39,23 +39,25 @@ function badgeStyles(category: "editing" | "coding") {
 }
 
 export default function Skills() {
-  const [skills, setSkills] = useState<Skill[]>([]);
+  const [skills, setSkills] = useState<Skill[]>(defaultSkills);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formState, setFormState] = useState<SkillForm>({ ...emptySkill });
   const [editId, setEditId] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) {
-      try {
-        setSkills(JSON.parse(stored));
-        return;
-      } catch {
-        // ignore invalid JSON
+    const timeoutId = window.setTimeout(() => {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        try {
+          setSkills(JSON.parse(stored));
+        } catch {
+          // ignore invalid JSON
+        }
       }
-    }
-    setSkills(defaultSkills);
+    });
+
+    return () => window.clearTimeout(timeoutId);
   }, []);
 
   useEffect(() => {

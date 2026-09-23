@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  serviceCategories,
-  serviceOfferings,
-  type ServiceCategory,
-} from "../lib/portfolio";
+import { serviceCategories, serviceOfferings } from "../lib/portfolio";
 
 export default function Services() {
   return (

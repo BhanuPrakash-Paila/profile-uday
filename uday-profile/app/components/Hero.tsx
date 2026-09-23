@@ -9,11 +9,15 @@ export default function Hero() {
   const [isCustomImage, setIsCustomImage] = useState(false);
 
   useEffect(() => {
-    const savedImage = window.localStorage.getItem("portfolio_profile_image");
-    if (savedImage) {
-      setProfileImage(savedImage);
-      setIsCustomImage(true);
-    }
+    const timeoutId = window.setTimeout(() => {
+      const savedImage = window.localStorage.getItem("portfolio_profile_image");
+      if (savedImage) {
+        setProfileImage(savedImage);
+        setIsCustomImage(true);
+      }
+    });
+
+    return () => window.clearTimeout(timeoutId);
   }, []);
 
   const handleProfileUpload = (event: ChangeEvent<HTMLInputElement>) => {

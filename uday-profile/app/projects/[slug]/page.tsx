@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
   STORAGE_KEY_PROJECTS,
-  defaultProjects,
   getProjectBySlug,
   getProjectCategoryLabel,
   getProjectGalleryTitle,
@@ -30,20 +29,25 @@ export default function ProjectDetailPage({ params }: Props) {
   const [selectedMedia, setSelectedMedia] = useState<GalleryMedia | null>(null);
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY_PROJECTS);
-    if (stored) {
-      try {
-        const parsed = JSON.parse(stored) as Project[];
-        const active = parsed.find((item) => item.slug === params.slug);
-        if (active) {
-          setProject(active);
-          return;
+    const timeoutId = window.setTimeout(() => {
+      const stored = localStorage.getItem(STORAGE_KEY_PROJECTS);
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored) as Project[];
+          const active = parsed.find((item) => item.slug === params.slug);
+          if (active) {
+            setProject(active);
+            return;
+          }
+        } catch {
+          // ignore invalid JSON
         }
-      } catch {
-        // ignore invalid JSON
       }
-    }
-    setProject(getProjectBySlug(params.slug));
+
+      setProject(getProjectBySlug(params.slug));
+    });
+
+    return () => window.clearTimeout(timeoutId);
   }, [params.slug]);
 
   if (!project) {
