@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const highlights = [
   {
     title: "Instagram Highlights",
@@ -35,18 +37,16 @@ export default function SocialFeed() {
             key={item.title}
             className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50"
           >
-            <img
+            <Image
               src={item.image}
               alt={item.title}
+              width={1000}
+              height={640}
               className="h-64 w-full object-cover"
             />
             <div className="space-y-3 p-6">
-              <h3 className="text-xl font-semibold text-slate-950">
-                {item.title}
-              </h3>
-              <p className="text-sm leading-7 text-slate-600">
-                {item.description}
-              </p>
+              <h3 className="text-xl font-semibold text-slate-950">{item.title}</h3>
+              <p className="text-sm leading-7 text-slate-600">{item.description}</p>
             </div>
           </div>
         ))}

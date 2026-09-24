@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import {
   type Project,
@@ -68,8 +69,7 @@ export default function Projects() {
 
   const validateForm = () => {
     const nextErrors: Record<string, string> = {};
-    if (!formState.title.trim())
-      nextErrors.title = "Project title is required.";
+    if (!formState.title.trim()) nextErrors.title = "Project title is required.";
     if (!formState.description.trim())
       nextErrors.description = "Description is required.";
     if (!formState.image.trim()) nextErrors.image = "Image URL is required.";
@@ -113,9 +113,7 @@ export default function Projects() {
     <section id="projects" className="mt-20">
       <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.3em] text-sky-300">
-            Projects
-          </p>
+          <p className="text-sm uppercase tracking-[0.3em] text-sky-300">Projects</p>
           <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
             Manage Your Portfolio
           </h2>
@@ -130,8 +128,8 @@ export default function Projects() {
       </div>
 
       <p className="max-w-xl text-sm leading-7 text-slate-400 sm:text-base">
-        Add, edit, and remove projects with responsive cards that update
-        instantly and persist in your browser.
+        Add, edit, and remove projects with responsive cards that update instantly and
+        persist in your browser.
       </p>
 
       <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -164,25 +162,23 @@ export default function Projects() {
               </button>
             </div>
             <div className="relative h-72 overflow-hidden">
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
+                width={1000}
+                height={700}
                 className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950/95 via-slate-950/20 to-transparent" />
             </div>
             <div className="space-y-4 p-6">
               <div className="flex items-center justify-between gap-3">
-                <h3 className="text-2xl font-semibold text-white">
-                  {project.title}
-                </h3>
+                <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
                 <span className="rounded-full bg-slate-900/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-slate-300">
                   {project.category}
                 </span>
               </div>
-              <p className="text-sm leading-6 text-slate-400">
-                {project.description}
-              </p>
+              <p className="text-sm leading-6 text-slate-400">{project.description}</p>
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-sky-300 transition group-hover:text-white">
                 View details
                 <span aria-hidden="true">→</span>
@@ -263,9 +259,7 @@ export default function Projects() {
                   className="w-full rounded-3xl border border-slate-800 bg-slate-900/90 px-4 py-3 text-slate-100 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
                 />
                 {errors.description && (
-                  <p className="mt-2 text-sm text-rose-400">
-                    {errors.description}
-                  </p>
+                  <p className="mt-2 text-sm text-rose-400">{errors.description}</p>
                 )}
               </div>
               <div>

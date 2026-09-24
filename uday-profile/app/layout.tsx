@@ -16,6 +16,14 @@ export const metadata: Metadata = {
   title: "Uday Creative Portfolio",
   description:
     "Professional portfolio for Uday Paila showcasing photography, video editing, projects, and creative skills.",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://uday-profile.vercel.app",
+  ),
+  openGraph: {
+    title: "Uday Creative Portfolio",
+    description: "Photography, video editing, and frontend development by Uday Paila.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -24,9 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-transparent text-slate-900">
-        {children}
-      </body>
+      <body className="min-h-full bg-transparent text-slate-900">{children}</body>
     </html>
   );
 }

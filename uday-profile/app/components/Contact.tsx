@@ -1,4 +1,32 @@
+"use client";
+
+import { FormEvent, useState } from "react";
+
 export default function Contact() {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("sending");
+
+    const form = event.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const response = await fetch("/api/inquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) throw new Error("Request failed");
+      form.reset();
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <section
       id="contact"
@@ -13,9 +41,8 @@ export default function Contact() {
             Let&apos;s create something unforgettable.
           </h2>
           <p className="max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
-            Reach out with a few details about your project and I&apos;ll
-            respond with a tailored plan for photography, video editing, or
-            frontend development.
+            Reach out with a few details about your project and I&apos;ll respond with a
+            tailored plan for photography, video editing, or frontend development.
           </p>
 
           <div className="grid gap-4 grid-cols-1 text-sm text-slate-700 sm:grid-cols-2 lg:grid-cols-3">
@@ -107,7 +134,14 @@ export default function Contact() {
           </div>
         </div>
 
-        <form className="space-y-5 rounded-[2rem] border border-slate-200 bg-slate-50 p-6 shadow-[0_20px_60px_-30px_rgba(17,24,39,0.2)]">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-5 rounded-[2rem] border border-slate-200 bg-slate-50 p-6 shadow-[0_20px_60px_-30px_rgba(17,24,39,0.2)]"
+        >
+          <div className="hidden" aria-hidden="true">
+            <label htmlFor="website">Website</label>
+            <input id="website" name="website" tabIndex={-1} autoComplete="off" />
+          </div>
           <div>
             <label
               className="mb-2 block text-sm font-medium text-slate-700"
@@ -155,10 +189,15 @@ export default function Contact() {
           </div>
           <button
             type="submit"
+            disabled={status === "sending"}
             className="inline-flex w-full items-center justify-center rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-indigo-500"
           >
-            Send Message
+            {status === "sending" ? "Sending..." : "Send Message"}
           </button>
+          <p className="text-sm text-slate-600" aria-live="polite">
+            {status === "success" && "Thanks, your message has been sent."}
+            {status === "error" && "Something went wrong. Please try again."}
+          </p>
         </form>
       </div>
     </section>

@@ -1,12 +1,5 @@
 export type ProjectCategory =
-  | "wedding"
-  | "event"
-  | "baby"
-  | "personal"
-  | "couple"
-  | "video"
-  | "promo"
-  | "insta";
+  "wedding" | "event" | "baby" | "personal" | "couple" | "video" | "promo" | "insta";
 
 export type VideoClip = {
   title: string;
@@ -63,7 +56,7 @@ export const serviceCategories: ServiceCategory[] = [
     description:
       "Soft, intimate portraits that capture newborn milestones and tender family moments.",
     images: [
-      "https://images.unsplash.com/photo-1500251897-7ed5c5e4d253?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1491013516836-7db643ee125a?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80",
     ],
@@ -155,7 +148,7 @@ export const defaultProjects: Project[] = [
     description:
       "Soft newborn and baby photo shoots with warm, timeless mood and family-first storytelling.",
     image:
-      "https://images.unsplash.com/photo-1500251897-7ed5c5e4d253?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1491013516836-7db643ee125a?auto=format&fit=crop&w=1000&q=80",
     link: "#contact",
     category: "baby",
     gallery: [
@@ -367,9 +360,7 @@ export function getGalleryForCategory(category: ProjectCategory): string[] {
   }
 }
 
-export function getVideoClipsForCategory(
-  category: ProjectCategory,
-): VideoClip[] {
+export function getVideoClipsForCategory(category: ProjectCategory): VideoClip[] {
   switch (category) {
     case "wedding":
       return [

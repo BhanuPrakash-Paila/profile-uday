@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import {
   STORAGE_KEY_PROJECTS,
@@ -61,12 +62,10 @@ export default function ProjectDetailPage({ params }: Props) {
             ← Back to Portfolio
           </Link>
           <div className="mt-20 rounded-[2rem] border border-slate-200 bg-white/80 p-10 text-slate-700 shadow-[0_20px_60px_-30px_rgba(17,24,39,0.2)] backdrop-blur-xl">
-            <h1 className="text-3xl font-semibold text-slate-950">
-              Project not found
-            </h1>
+            <h1 className="text-3xl font-semibold text-slate-950">Project not found</h1>
             <p className="mt-4 text-slate-600">
-              This project page is not available yet. Return to the portfolio
-              and choose a featured project.
+              This project page is not available yet. Return to the portfolio and choose a
+              featured project.
             </p>
           </div>
         </div>
@@ -156,9 +155,11 @@ export default function ProjectDetailPage({ params }: Props) {
                   >
                     {item.type === "image" && item.src ? (
                       <div className="relative h-64 overflow-hidden">
-                        <img
+                        <Image
                           src={item.src}
                           alt={item.title}
+                          width={1000}
+                          height={700}
                           className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
@@ -172,12 +173,8 @@ export default function ProjectDetailPage({ params }: Props) {
                       </div>
                     )}
                     <div className="space-y-2 p-4">
-                      <p className="text-sm font-semibold text-slate-900">
-                        {item.title}
-                      </p>
-                      <p className="text-sm text-slate-600">
-                        {item.description}
-                      </p>
+                      <p className="text-sm font-semibold text-slate-900">{item.title}</p>
+                      <p className="text-sm text-slate-600">{item.description}</p>
                     </div>
                   </button>
                 ))}
@@ -245,9 +242,8 @@ export default function ProjectDetailPage({ params }: Props) {
             </div>
             <div className="rounded-3xl border border-slate-200 bg-white p-5 text-slate-600">
               <p className="text-sm leading-7">
-                Each portfolio item now opens with a polished gallery
-                experience, allowing you to preview visuals and jump directly to
-                the relevant video link.
+                Each portfolio item now opens with a polished gallery experience, allowing
+                you to preview visuals and jump directly to the relevant video link.
               </p>
             </div>
           </aside>
@@ -267,9 +263,11 @@ export default function ProjectDetailPage({ params }: Props) {
             <div className="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
               <div className="bg-slate-100 p-4">
                 {selectedMedia.type === "image" && selectedMedia.src ? (
-                  <img
+                  <Image
                     src={selectedMedia.src}
                     alt={selectedMedia.title}
+                    width={1200}
+                    height={800}
                     className="h-[320px] w-full rounded-[1.5rem] object-cover sm:h-[420px]"
                   />
                 ) : (

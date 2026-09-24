@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState, type ChangeEvent } from "react";
 
 const DEFAULT_PROFILE = "/profile.svg";
@@ -64,8 +65,8 @@ export default function Hero() {
             </p>
           </div>
           <p className="text-base leading-7 text-slate-600 sm:text-lg">
-            Frontend developer with React and Next.js experience, crafting
-            modern visual portfolios and immersive digital experiences.
+            Frontend developer with React and Next.js experience, crafting modern visual
+            portfolios and immersive digital experiences.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center md:justify-start">
             <a
@@ -86,9 +87,11 @@ export default function Hero() {
         <div className="fade-in-up flex-1 md:max-w-[420px]">
           <div className="relative mx-auto w-full max-w-[360px] rounded-[2rem] border border-slate-200 bg-white p-4 shadow-[0_24px_70px_-30px_rgba(17,24,39,0.24)]">
             <div className="relative overflow-hidden rounded-[1.75rem] bg-slate-100">
-              <img
+              <Image
                 src={profileImage}
                 alt="Profile"
+                width={720}
+                height={720}
                 className="h-[360px] w-full object-cover transition duration-700 ease-out"
               />
             </div>

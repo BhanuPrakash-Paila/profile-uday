@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 
 type Example = {
@@ -14,8 +15,7 @@ const examples: Example[] = [
   {
     id: "wedding",
     title: "Wedding Storytelling",
-    description:
-      "A warm lift and cinematic color grade for a romantic wedding gallery.",
+    description: "A warm lift and cinematic color grade for a romantic wedding gallery.",
     before:
       "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80",
     after:
@@ -24,8 +24,7 @@ const examples: Example[] = [
   {
     id: "events",
     title: "Event Recap",
-    description:
-      "A brighter, cleaner edit that keeps the energy lively and polished.",
+    description: "A brighter, cleaner edit that keeps the energy lively and polished.",
     before:
       "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1000&q=80",
     after:
@@ -34,8 +33,7 @@ const examples: Example[] = [
   {
     id: "portraits",
     title: "Portrait Retouch",
-    description:
-      "Soft skin refinement, richer tones, and a finer editorial finish.",
+    description: "Soft skin refinement, richer tones, and a finer editorial finish.",
     before:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=80",
     after:
@@ -71,8 +69,7 @@ export default function BeforeAfterSlider() {
           </h2>
         </div>
         <p className="max-w-xl text-sm leading-7 text-slate-600">
-          Drag the slider to reveal how raw frames become polished, high-impact
-          edits.
+          Drag the slider to reveal how raw frames become polished, high-impact edits.
         </p>
       </div>
 
@@ -98,15 +95,19 @@ export default function BeforeAfterSlider() {
 
       <div className="rounded-[2rem] border border-slate-200 bg-slate-950 p-4 shadow-2xl">
         <div className="relative overflow-hidden rounded-[1.5rem]">
-          <img
+          <Image
             src={activeExample.before}
             alt={`${activeExample.title} before`}
+            width={1200}
+            height={800}
             className="h-[320px] w-full object-cover sm:h-[420px]"
             style={imageStyles.before}
           />
-          <img
+          <Image
             src={activeExample.after}
             alt={`${activeExample.title} after`}
+            width={1200}
+            height={800}
             className="absolute inset-0 h-[320px] w-full object-cover sm:h-[420px]"
             style={imageStyles.after}
           />
